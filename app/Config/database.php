@@ -57,31 +57,20 @@
  * unix_socket =>
  * For MySQL to connect via socket specify the `unix_socket` parameter instead of `host` and `port`
  */
-$url_parts = parse_url($_SERVER['DATABASE_URL']);
-$db_name = substr( $url_parts{'path'}, 1 );
-$db_connection_string = $url_parts{'host'} . ':' . $url_parts{'port'};
 class DATABASE_CONFIG {
-
-	
-	public $default = array(
-		'datasource' => 'Database/Mysql',
-        	'persistent' => false,
-		'host' => $db_connection_string,
-		'login' => $url_parts{'user'},
-		'password' => $url_parts{'pass'},
-		'database' => $db_name,
-		'prefix' => '',
-		//'encoding' => 'utf8',
-	);
-
-	public $test = array(
-		'datasource' => 'Database/Mysql',
-		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
-		'prefix' => '',
-		//'encoding' => 'utf8',
-	);
+	public $default;
+	function __construct() {
+		$url_parts = parse_url($_SERVER['DATABASE_URL']);
+		$db_name = substr( $url_parts{'path'}, 1 );
+		$this -> default = array(
+			'datasource' => 'Database/Mysql',
+        		'persistent' => false,
+			'host' => $url_parts{'host'},
+			'login' => $url_parts{'user'},
+			'password' => $url_parts{'pass'},
+			'database' => $db_name,
+			'prefix' => '',
+			//'encoding' => 'utf8',
+		);
+	}
 }

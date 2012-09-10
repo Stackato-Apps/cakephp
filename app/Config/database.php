@@ -57,15 +57,15 @@
  * unix_socket =>
  * For MySQL to connect via socket specify the `unix_socket` parameter instead of `host` and `port`
  */
+$url_parts = parse_url($_SERVER['DATABASE_URL']);
+$db_name = substr( $url_parts{'path'}, 1 );
+$db_connection_string = $url_parts{'host'} . ':' . $url_parts{'port'};
 class DATABASE_CONFIG {
 
-	private $url_parts = parse_url($_SERVER['DATABASE_URL']);
-	private $db_name = substr( $url_parts{'path'}, 1 );
-	private $db_connection_string = $url_parts{'host'} . ':' . $url_parts{'port'};
 	
 	public $default = array(
 		'datasource' => 'Database/Mysql',
-	'persistent' => false,
+        	'persistent' => false,
 		'host' => $db_connection_string,
 		'login' => $url_parts{'user'},
 		'password' => $url_parts{'pass'},

@@ -19,7 +19,9 @@
 	},
 	"require": {
 		"php": ">=5.2.8",
-		"ext-mcrypt": "*"
+		"ext-mcrypt": "*",
+                "ext-pdo": "*",
+                "ext-pdo_mysql": "*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "3.7.*",

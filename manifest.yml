@@ -1,6 +1,5 @@
 applications:
 - name: cakephp
-  instances: 1
   mem: 128
   services:
     ${name}-db:

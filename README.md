@@ -11,7 +11,7 @@ CakePHP is a rapid development framework for PHP which uses commonly known desig
 Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
 
 
-## Deploy on Stackato
+## Deploy on HPE Helion Stackato
 
     stackato push -n
 

@@ -1,6 +1,6 @@
 applications:
 - name: cakephp
-  mem: 128
+  memory: 128
   services:
     ${name}-db:
       type: mysql
